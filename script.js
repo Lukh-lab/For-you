@@ -252,13 +252,34 @@ function startGame() {
 // Event Listeners
 startBtn.addEventListener('click', startGame);
 
+const bgMusic = document.getElementById('bg-music');
+
 yesBtn.addEventListener('click', () => {
     proposalScreen.classList.remove('active');
     proposalScreen.classList.add('hidden');
     celebrationScreen.classList.remove('hidden');
     celebrationScreen.classList.add('active');
-    triggerConfetti(); // Optional: Implement confetti
+
+    // Start from 53 seconds
+    bgMusic.currentTime = 53;
+    bgMusic.volume = 0.6;
+    bgMusic.play();
+
+    triggerConfetti();
 });
+
+function fadeInMusic() {
+    bgMusic.volume = 0;
+    bgMusic.play();
+
+    let fade = setInterval(() => {
+        if (bgMusic.volume < 0.6) {
+            bgMusic.volume += 0.05;
+        } else {
+            clearInterval(fade);
+        }
+    }, 200);
+}
 
 // "No" button runs away
 noBtn.addEventListener('mouseenter', moveNoButton);
