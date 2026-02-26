@@ -236,23 +236,6 @@ p {
     animation: heartbeat 2s infinite;
 }
 
-/* Floating background hearts */
-body::before {
-    content: "❤️ ❤️ 💕 💖 💗 💓 💞 💘";
-    position: fixed;
-    top: -50px;
-    left: 0;
-    width: 100%;
-    font-size: 24px;
-    opacity: 0.15;
-    animation: floatHearts 20s linear infinite;
-    pointer-events: none;
-}
-
-@keyframes floatHearts {
-    0% { transform: translateY(-50px); }
-    100% { transform: translateY(110vh); }
-}
 
 .proposal-content {
     background: white;
