@@ -253,21 +253,6 @@ function startGame() {
 startBtn.addEventListener('click', startGame);
 
 const bgMusic = document.getElementById('bg-music');
-
-yesBtn.addEventListener('click', () => {
-    proposalScreen.classList.remove('active');
-    proposalScreen.classList.add('hidden');
-    celebrationScreen.classList.remove('hidden');
-    celebrationScreen.classList.add('active');
-
-    // Start from 53 seconds
-    bgMusic.currentTime = 53;
-    bgMusic.volume = 0.6;
-    bgMusic.play();
-
-    triggerConfetti();
-});
-
 function fadeInMusic() {
     bgMusic.volume = 0;
     bgMusic.play();
@@ -280,6 +265,21 @@ function fadeInMusic() {
         }
     }, 200);
 }
+
+yesBtn.addEventListener('click', () => {
+    proposalScreen.classList.remove('active');
+    proposalScreen.classList.add('hidden');
+    celebrationScreen.classList.remove('hidden');
+    celebrationScreen.classList.add('active');
+
+    // Start from 53 seconds
+    bgMusic.currentTime = 53;
+    bgMusic.volume = 0.6;
+    fadeInMusic();
+
+    triggerConfetti();
+});
+
 
 // "No" button runs away
 noBtn.addEventListener('mouseenter', moveNoButton);
