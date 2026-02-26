@@ -273,7 +273,7 @@ yesBtn.addEventListener('click', () => {
     celebrationScreen.classList.add('active');
 
     // Start from 53 seconds
-    bgMusic.currentTime = 53;
+    bgMusic.currentTime =0;
     bgMusic.volume = 0.6;
     fadeInMusic();
 
