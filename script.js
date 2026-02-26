@@ -261,21 +261,24 @@ yesBtn.addEventListener('click', () => {
 });
 
 // "No" button runs away
-noBtn.addEventListener('mouseover', moveNoButton);
-noBtn.addEventListener('touchstart', moveNoButton);
+noBtn.addEventListener('mouseenter', moveNoButton);
+noBtn.addEventListener('touchstart', moveNoButton, { passive: false });
 
-function moveNoButton() {
-    const padding = 20;
+function moveNoButton(e) {
+    e.preventDefault();
+
+    const padding = 30;
 
     const maxX = window.innerWidth - noBtn.offsetWidth - padding;
     const maxY = window.innerHeight - noBtn.offsetHeight - padding;
 
-    const x = Math.random() * maxX;
-    const y = Math.random() * maxY;
+    let x = Math.random() * maxX;
+    let y = Math.random() * maxY;
 
     noBtn.style.position = 'fixed';
     noBtn.style.left = `${x}px`;
     noBtn.style.top = `${y}px`;
+    noBtn.style.transition = 'all 0.2s ease';
 }
 
 function triggerConfetti() {
